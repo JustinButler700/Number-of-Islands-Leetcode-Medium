@@ -26,20 +26,16 @@ class Solution {
     public void connect(int x, int y, char[][] grid){
         if(seen[x][y]){return;}
         seen[x][y]=true;
-        
-        // check north
+        //Check all directions.
         if(x-1 >= 0 && !seen[x-1][y] && grid[x-1][y]=='1'){
             connect(x-1, y, grid);
         }
-        // check west
         if(y-1 >= 0 && !seen[x][y-1] && grid[x][y-1]=='1'){
             connect(x, y-1, grid);
         }
-        // check south
         if(x+1 < grid.length && !seen[x+1][y] && grid[x+1][y]=='1'){
             connect(x+1, y, grid);
         }
-        // check east
         if(y+1 < grid[0].length && !seen[x][y+1] && grid[x][y+1]=='1'){
             connect(x, y+1, grid);
         }
